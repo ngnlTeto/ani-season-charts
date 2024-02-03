@@ -13,7 +13,7 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter({
 			fallback: 'index.html',
-			base: process.env.NODE_ENV === 'production' ? '/ani-season-chart' : '',
+			base: process.env.NODE_ENV === 'production' ? '/ani-season-charts/' : '',
 		})
 	}
 };
