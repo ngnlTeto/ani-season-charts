@@ -2,12 +2,9 @@
 	import { createEventDispatcher } from "svelte";
 	import { Button, Card, Divider, NativeSelect, NumberInput, Switch } from "@svelteuidev/core";
 	import { TierTypes, getSelectableYears } from "../tooling";
+	import type { SettingsInfo } from "../types";
 
-	export let selectedYear: string = "";
-	export let selectedSeason: string = "";
-	export let selectedAnimeCount: number = 0;
-	export let selectedTierType: string = "";
-	export let largeImageInTierlist: boolean = false;
+	export let settings: SettingsInfo;
 
 	const dispatch = createEventDispatcher();
 
@@ -23,16 +20,16 @@
 		<NativeSelect
 			data={TierTypes.map((x) => x.name)}
 			label="Tier type"
-			bind:value={selectedTierType}
+			bind:value={settings.selectedTierType}
 		/>
 		<div style="width: 5px; height: 55px;">
 			<Divider orientation="vertical" />
 		</div>
-		<NativeSelect data={selectableYears} label="Year" bind:value={selectedYear} />
+		<NativeSelect data={selectableYears} label="Year" bind:value={settings.selectedYear} />
 		<NativeSelect
 			data={["Winter", "Spring", "Summer", "Fall"]}
 			label="Season"
-			bind:value={selectedSeason}
+			bind:value={settings.selectedSeason}
 		/>
 		<div style="width: 5px; height: 55px;">
 			<Divider orientation="vertical" />
@@ -42,13 +39,13 @@
 				width="120"
 				label="Anime count"
 				description="Min: 10 / Max: 240"
-				bind:value={selectedAnimeCount}
+				bind:value={settings.selectedAnimeCount}
 				min={5}
 				max={240}
 				step={5}
 			></NumberInput>
 		</div>
-		<Switch label="Enable large cards in Tierlist" bind:value={largeImageInTierlist} />
+		<Switch label="Enable large cards in Tierlist" bind:value={settings.largeImageInTierlist} />
 		<div style="margin-left: auto;">
 			<Button size="lg" on:click={applySettings}>Get Data</Button>
 		</div>

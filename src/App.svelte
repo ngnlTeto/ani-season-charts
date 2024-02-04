@@ -3,22 +3,23 @@
 	import { getCurrentSeason } from "./lib/tooling";
 	import Settings from "./lib/components/Settings.svelte";
 	import { fetchApiByAwait } from "./lib/anilistApi";
-	import type { Anime } from "./lib/types";
+	import type { Anime, SettingsInfo } from "./lib/types";
 	import Basket from "./lib/components/Basket.svelte";
 
-	let selectedYear: string = new Date().getFullYear().toString();
-	let selectedSeason: string = getCurrentSeason();
-	let selectedAnimeCount: number = 60;
-	let selectedTierType: string = "Want to watch";
-	let largeImageInTierlist: boolean = false;
-
+	let settings: SettingsInfo = {
+		selectedYear: new Date().getFullYear().toString(),
+		selectedSeason: getCurrentSeason(),
+		selectedAnimeCount: 60,
+		selectedTierType: "Want to watch",
+		largeImageInTierlist: false,
+	};
 	let seasonalAnime: Anime[] = [];
 
 	async function reloadData() {
 		seasonalAnime = await fetchApiByAwait({
-			perPage: selectedAnimeCount,
-			seasonYear: Number(selectedYear),
-			season: selectedSeason.toUpperCase(),
+			perPage: settings.selectedAnimeCount,
+			seasonYear: Number(settings.selectedYear),
+			season: settings.selectedSeason.toUpperCase(),
 		});
 	}
 </script>
@@ -30,18 +31,11 @@
 </div>
 
 <div class="settings">
-	<Settings
-		bind:selectedYear
-		bind:selectedSeason
-		bind:selectedAnimeCount
-		bind:selectedTierType
-		bind:largeImageInTierlist
-		on:applySettings={reloadData}
-	></Settings>
+	<Settings	bind:settings	on:applySettings={reloadData}	/>
 </div>
 
 <div class="no-tier-basket">
-	<Basket name="no-tier" bind:list={seasonalAnime}></Basket>
+	<Basket name="no-tier" bind:list={seasonalAnime} />
 </div>
 
 <style>
