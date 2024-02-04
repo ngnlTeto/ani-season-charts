@@ -38,7 +38,7 @@
 			<NumberInput
 				width="120"
 				label="Anime count"
-				description="Min: 10 / Max: 240"
+				description="Min: 5 / Max: 240"
 				bind:value={settings.selectedAnimeCount}
 				min={5}
 				max={240}
