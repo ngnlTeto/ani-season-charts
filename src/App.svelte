@@ -8,7 +8,7 @@
 
 	let selectedYear: string = new Date().getFullYear().toString();
 	let selectedSeason: string = getCurrentSeason();
-	let selectedAnimeCount: number = 120;
+	let selectedAnimeCount: number = 60;
 	let selectedTierType: string = "Want to watch";
 	let largeImageInTierlist: boolean = false;
 

@@ -43,7 +43,7 @@
 				label="Anime count"
 				description="Min: 10 / Max: 240"
 				bind:value={selectedAnimeCount}
-				min={10}
+				min={5}
 				max={240}
 				step={5}
 			></NumberInput>
