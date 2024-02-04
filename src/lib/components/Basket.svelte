@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Anime } from "$lib/types";
+	import type { Anime } from "../types";
 	import AniCard from "./AniCard.svelte";
 
 	export const name: string = "";

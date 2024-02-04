@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Anime } from "$lib/types";
+	import type { Anime } from "../types";
 
 	export let anime: Anime;
 	export let small: boolean = false;

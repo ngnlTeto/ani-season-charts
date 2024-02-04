@@ -1,4 +1,4 @@
-import type { Anime, QueryParams } from "$lib/types";
+import type { Anime, QueryParams } from "./types";
 
 const query = `
 query ($id: Int, $seasonYear: Int, $season: MediaSeason, $page: Int, $perPage: Int) {

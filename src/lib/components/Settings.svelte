@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { createEventDispatcher } from "svelte";
 	import { Button, Card, Divider, NativeSelect, NumberInput, Switch } from "@svelteuidev/core";
-	import { TierTypes, getSelectableYears } from "$lib/tooling";
+	import { TierTypes, getSelectableYears } from "../tooling";
 
 	export let selectedYear: string = "";
 	export let selectedSeason: string = "";
