@@ -43,9 +43,9 @@
 				min={5}
 				max={240}
 				step={5}
-			></NumberInput>
+			/>
 		</div>
-		<Switch label="Enable large cards in Tierlist" bind:value={settings.largeImageInTierlist} />
+		<Switch label="Enable large cards in Tierlist" bind:checked={settings.largeImageInTierlist} />
 		<div style="margin-left: auto;">
 			<Button size="lg" on:click={applySettings}>Get Data</Button>
 		</div>

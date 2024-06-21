@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { Center, Title } from "@svelteuidev/core";
-	import { getCurrentSeason } from "./lib/tooling";
-	import Settings from "./lib/components/Settings.svelte";
-	import { fetchApiByAwait } from "./lib/anilistApi";
-	import type { Anime, SettingsInfo } from "./lib/types";
-	import Basket from "./lib/components/Basket.svelte";
+	import { getCurrentSeason } from "$lib/tooling";
+	import Settings from "$lib/components/Settings.svelte";
+	import { fetchApiByAwait } from "$lib/anilistApi";
+	import type { Anime, SettingsInfo } from "$lib/types";
+	import Basket from "$lib/components/Basket.svelte";
 
 	let settings: SettingsInfo = {
 		selectedYear: new Date().getFullYear().toString(),
